@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const {connectDB} = require('./config/db')
 //import routes file
 const authRouter = require('./routes/authRouter');
 const PORT = 3000;
@@ -14,5 +15,6 @@ app.use('/auth', authRouter);
 
 
 app.listen(PORT, ()=> {
-    console.log('server is running')
+    console.log('server is running');
+    connectDB();
 })

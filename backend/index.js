@@ -1,8 +1,8 @@
 const express = require('express');
-const app = express();
 const {connectDB} = require('./config/db')
 //import routes file
 const authRouter = require('./routes/authRouter');
+const app = express();
 const PORT = 3000;
 
 

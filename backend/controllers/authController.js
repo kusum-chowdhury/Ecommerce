@@ -42,4 +42,16 @@ const loginController = async(req, res)=> {
     }
 }
 
-module.exports ={ registerController, loginController}
+const logoutController = async(req, res) => {
+    try {
+      res.clearCookie('t');
+    } catch (e) {
+      // Handle any potential errors here
+      console.error(e);
+      return res.status(500).json({
+        message: "Internal Server Error"
+      });
+    }
+  };
+
+module.exports ={ registerController, loginController, logoutController}

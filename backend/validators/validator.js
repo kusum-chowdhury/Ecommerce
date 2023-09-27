@@ -7,7 +7,7 @@ const userValidationRules = () => {
     //check if email already exists
     body('email').custom(async value => {
         const user = await User.findOne({
-            where: {value}
+            where: {email: value}
         });
         if (user) {
         throw new Error('E-mail already in use');

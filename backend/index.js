@@ -1,5 +1,6 @@
 const express = require('express');
-const {connectDB} = require('./config/db')
+const {connectDB} = require('./config/db');
+const ErrorHandler = require('./middlewares/errorHandler');
 //import routes file
 const authRouter = require('./routes/authRouter');
 const app = express();
@@ -12,7 +13,8 @@ app.use(express.urlencoded({extended: false}));
 
 // Use the routers in the application
 app.use('/auth', authRouter);
-
+// ERROR HANDLER MIDDLEWARE (Last middleware to use)
+app.use(ErrorHandler)
 
 app.listen(PORT, ()=> {
     console.log('server is running');

@@ -1,19 +1,9 @@
 const { body, validationResult } = require('express-validator');
-const User = require('../models/userModel')
+
 
 //user validator function
 const userValidationRules = () => {
   return [
-    //check if email already exists
-    body('email').custom(async value => {
-        const user = await User.findOne({
-            where: {email: value}
-        });
-        if (user) {
-        throw new Error('E-mail already in use');
-        }
-    }),
-
     //name should be 5 character long
     body('name').not().isEmpty()
     .withMessage('name can not be empty!')

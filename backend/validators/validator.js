@@ -44,7 +44,19 @@ const validate = (req, res, next) => {
   })
 }
 
+const passwordValidator = () => {
+  return [
+    // password must be at least 5 chars long
+    body('password').not().isEmpty()
+    .withMessage('password can not be empty!')
+    .bail().isLength({ min: 6 })
+    .withMessage('passowrd should be 6 character long')
+    .bail(),
+  ]
+}
+
 module.exports = {
   userValidationRules,
   validate,
+  passwordValidator
 }

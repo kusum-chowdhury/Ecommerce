@@ -14,3 +14,10 @@ const connectDB = () => {
 }
 
 module.exports = {createDB, connectDB}
+
+const User = require('../models/userModel');
+const PasswordReset = require('../models/passwordResetModel');
+
+// Define associations
+User.hasOne(PasswordReset);
+PasswordReset.belongsTo(User);

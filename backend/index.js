@@ -4,6 +4,7 @@ const {connectDB} = require('./config/db');
 const ErrorHandler = require('./middlewares/errorHandler');
 //import routes file
 const authRouter = require('./routes/authRouter');
+const productRouter = require('./routes/productRouter');
 const passwordResetRouter = require('./routes/passwordResetRouter');
 const app = express();
 const PORT = 3000;
@@ -16,6 +17,7 @@ app.use(express.urlencoded({extended: false}));
 // Use the routers in the application
 app.use('/auth', authRouter);
 app.use('/password-reset', passwordResetRouter)
+app.use('/product', productRouter);
 // ERROR HANDLER MIDDLEWARE (Last middleware to use)
 app.use(ErrorHandler)
 

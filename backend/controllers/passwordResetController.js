@@ -8,8 +8,8 @@ const EMAIL = process.env.EMAIL;
 const PASSWORD = process.env.PASSWORD;
 
 const PasswordResetController = {
-  initiatePasswordReset: async (req, res) => {
-   // user provides their email for the reset
+    initiatePasswordReset: async (req, res) => {
+    // user provides their email for the reset
     const { email } = req.body; 
     // Check if the user exists and generate a reset token
     const emailExists = await User.findOne({where: {email}});

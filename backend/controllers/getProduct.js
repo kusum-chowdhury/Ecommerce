@@ -6,5 +6,12 @@ const getAllProducts = async(req, res)=> {
         products
     })
 }
+const getSingleProduct = async(req, res)=> {
+    const id = req.params.id;
+    const product = await Product.findOne({where: {id}});
+    return res.status(200).json({
+        product
+    })
+}
 
-module.exports = {getAllProducts};
+module.exports = {getAllProducts, getSingleProduct};

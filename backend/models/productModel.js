@@ -12,6 +12,6 @@ const Product = createDB.define("product", {
     price: DataTypes.DECIMAL,
     description: DataTypes.STRING,
     image: DataTypes.STRING,
-})
+});
 
 module.exports = Product
